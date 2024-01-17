@@ -23,7 +23,7 @@ import java.util.List;
  * @date 2023/12/10
  */
 public class Function1ServiceImpl implements Function1Service {
-
+/*添加计划*/
     public void insertPlan(String p_name, String p_time, String p_major, String p_aim, String p_contain, int p_period, String p_teacher) throws FailAddException {
         SqlSession sqlSession = SqlSessionUtil.openSession();
         PlanMapper planMapper = sqlSession.getMapper(PlanMapper.class);
