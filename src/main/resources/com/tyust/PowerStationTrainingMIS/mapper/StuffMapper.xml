@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tyust.PowerStationTrainingMIS.mapper.StuffMapper">
+    <insert id="addStuff" >
+        insert into stuff
+        values
+            (null,#{s_name},#{s_no},#{s_sex},#{s_birth},#{p_id},#{p_major},#{post})
+    </insert>
+    <update id="updateStuff">
+        update stuff
+        set
+            s_name = #{s_name},
+            s_no = #{s_no},
+            s_sex = #{s_sex},
+            s_birth = #{s_birth},
+            p_id = #{p_id},
+            p_major = #{p_major},
+            post = #{post}
+        where s_id = #{s_id}
+
+    </update>
+    <select id="selectStuff" resultType="stuff">
+        select * from stuff
+        <where>
+            <if test="s_no != null and s_no != ''">
+                and s_no = #{s_no}
+            </if>
+            <if test="p_major != null and p_major != ''">
+                and p_major = #{p_major}
+            </if>
+            <if test="s_name != null and s_name != ''">
+                and s_name = #{s_name}
+            </if>
+        </where>
+    </select>
+    <delete id="deleteStuff" >
+        delete from stuff where s_id = #{s_id}
+    </delete>
+</mapper>
